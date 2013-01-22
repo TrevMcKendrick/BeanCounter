@@ -10,12 +10,16 @@
 
 @interface ViewController ()
 
+@property (nonatomic, strong) IBOutlet UILabel *countNumber;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad
 {
+	self.countNumber.text = @"0";
+	
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }

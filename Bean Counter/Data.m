@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  Data.m
 //  Bean Counter
 //
 //  Created by Trevor McKendrick on 1/21/13.
 //  Copyright (c) 2013 La Biblia Reina Valera LLC. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "Data.h"
 
-@interface ViewController : UIViewController
-
-
+@implementation Data
 
 @end

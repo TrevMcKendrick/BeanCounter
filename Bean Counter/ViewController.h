@@ -12,4 +12,12 @@
 
 
 
+- (IBAction)increaseCount;
+- (IBAction)decreaseCount;
+
+
+@property (strong, nonatomic) IBOutlet UIButton *increaseButton;
+@property (strong, nonatomic) IBOutlet UIButton *decreaseButton;
+@property int count;
+
 @end

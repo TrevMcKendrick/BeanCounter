@@ -19,6 +19,8 @@
 		69B4DD9B16AE65A7009457DD /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4DD9A16AE65A7009457DD /* ViewController.m */; };
 		69B4DD9E16AE65A7009457DD /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 69B4DD9C16AE65A7009457DD /* ViewController.xib */; };
 		69B4DDAA16AE6C8A009457DD /* Data.m in Sources */ = {isa = PBXBuildFile; fileRef = 69B4DDA916AE6C8A009457DD /* Data.m */; };
+		69B4DDAE16AE7158009457DD /* minusimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B4DDAC16AE7158009457DD /* minusimage.png */; };
+		69B4DDAF16AE7158009457DD /* plusimage.png in Resources */ = {isa = PBXBuildFile; fileRef = 69B4DDAD16AE7158009457DD /* plusimage.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		69B4DD9D16AE65A7009457DD /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
 		69B4DDA816AE6C8A009457DD /* Data.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Data.h; sourceTree = "<group>"; };
 		69B4DDA916AE6C8A009457DD /* Data.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Data.m; sourceTree = "<group>"; };
+		69B4DDAC16AE7158009457DD /* minusimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = minusimage.png; sourceTree = "<group>"; };
+		69B4DDAD16AE7158009457DD /* plusimage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = plusimage.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +63,7 @@
 		69B4DD7216AE65A7009457DD = {
 			isa = PBXGroup;
 			children = (
+				69B4DDAB16AE714D009457DD /* Assets */,
 				69B4DD8716AE65A7009457DD /* Bean Counter */,
 				69B4DD8016AE65A7009457DD /* Frameworks */,
 				69B4DD7E16AE65A7009457DD /* Products */,
@@ -90,9 +95,9 @@
 				69B4DD9116AE65A7009457DD /* AppDelegate.m */,
 				69B4DD9916AE65A7009457DD /* ViewController.h */,
 				69B4DD9A16AE65A7009457DD /* ViewController.m */,
+				69B4DD9C16AE65A7009457DD /* ViewController.xib */,
 				69B4DDA816AE6C8A009457DD /* Data.h */,
 				69B4DDA916AE6C8A009457DD /* Data.m */,
-				69B4DD9C16AE65A7009457DD /* ViewController.xib */,
 				69B4DD8816AE65A7009457DD /* Supporting Files */,
 			);
 			path = "Bean Counter";
@@ -110,6 +115,15 @@
 				69B4DD9716AE65A7009457DD /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		69B4DDAB16AE714D009457DD /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				69B4DDAC16AE7158009457DD /* minusimage.png */,
+				69B4DDAD16AE7158009457DD /* plusimage.png */,
+			);
+			name = Assets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,6 +182,8 @@
 				69B4DD9616AE65A7009457DD /* Default@2x.png in Resources */,
 				69B4DD9816AE65A7009457DD /* Default-568h@2x.png in Resources */,
 				69B4DD9E16AE65A7009457DD /* ViewController.xib in Resources */,
+				69B4DDAE16AE7158009457DD /* minusimage.png in Resources */,
+				69B4DDAF16AE7158009457DD /* plusimage.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

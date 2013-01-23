@@ -11,24 +11,21 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) IBOutlet UILabel *countDisplay;
 @property (nonatomic, strong) IBOutlet UISwitch *toggleSwitch;
-
 
 @end
 
-
-
 @implementation ViewController
 
-@synthesize count;
+
 @synthesize dateLabel;
 
 - (void)viewDidLoad
 {
-	self.countDisplay.text = @"0";
-	[self changeDateLabel];
-    [super viewDidLoad];
+	count = [[NSUserDefaults standardUserDefaults] integerForKey:@"Counter"];
+	date  = [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"];
+	[self displayCounterLabelText];
+	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -38,30 +35,47 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)changeDateLabel {
-	NSDate *today = [NSDate date];
-	NSLog(@"%@",today);
+
+- (void)setDateToToday {
+	NSDate *todaysDate = [NSDate date];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"dd MMM yyyy"];
-	dateLabel.text = [dateFormatter stringFromDate:today];
+	dateLabel.text = [dateFormatter stringFromDate:todaysDate];
 }
 
+- (void)saveData {
+	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	[defaults setInteger:count forKey:@"Counter"];
+	[defaults setObject:date forKey:@"Date"];
+}
 
+- (void) displayCounterLabelText {
+	NSString* displayString = [NSString stringWithFormat:@"%i", count];
+	self->countDisplay.text = displayString;
+}
 
 - (IBAction) increaseCount {
 	NSLog(@"Count is %i before addition", count);
-	self.count ++;
+	self->count ++;
 	NSLog(@"Count is %i after addition", count);
-	NSString* displayString = [NSString stringWithFormat:@"%i", count];
-	self.countDisplay.text = displayString;
+	[self displayCounterLabelText];
+	[self saveData];
 }
 
 - (IBAction) decreaseCount {
 	NSLog(@"Count is %i before subtraction", count);
-	self.count --;
+	self->count --;
 	NSLog(@"Count is %i after subtraction", count);
-	NSString* displayString = [NSString stringWithFormat:@"%i", count];
-	self.countDisplay.text = displayString;
+	[self displayCounterLabelText];
+	[self saveData];
+}
+
+- (IBAction)zeroOut:(UIButton *)sender {
+	[self setDateToToday];
+	count = 0;
+	[self displayCounterLabelText];
+	
+	
 }
 
 - (IBAction)toggleSwitch:(id)sender {
@@ -69,12 +83,14 @@
 		self.decreaseButton.hidden = NO;
 		self.increaseButton.hidden = NO;
 		self.dateLabel.hidden = NO;
+		self.zeroButton.hidden = NO;
 	}
 	
 	else {
 		self.decreaseButton.hidden = YES;
 		self.increaseButton.hidden = YES;
 		self.dateLabel.hidden = YES;
+		self.zeroButton.hidden = YES;
 	}
 }
 

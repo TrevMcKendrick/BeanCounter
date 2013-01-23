@@ -8,17 +8,24 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController {
+	IBOutlet UILabel *countDisplay;
+	int count;
+	NSDate *date;
+}
 
 
 
 - (IBAction)increaseCount;
 - (IBAction)decreaseCount;
+- (IBAction)zeroOut:(UIButton *)sender;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *increaseButton;
 @property (strong, nonatomic) IBOutlet UIButton *decreaseButton;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
-@property int count;
+@property (strong, nonatomic) IBOutlet UIButton *zeroButton;
+
+
 
 @end

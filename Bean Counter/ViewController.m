@@ -22,11 +22,12 @@
 @implementation ViewController
 
 @synthesize count;
+@synthesize dateLabel;
 
 - (void)viewDidLoad
 {
 	self.countDisplay.text = @"0";
-	
+	[self changeDateLabel];
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -35,6 +36,14 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)changeDateLabel {
+	NSDate *today = [NSDate date];
+	NSLog(@"%@",today);
+	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+	[dateFormatter setDateFormat:@"dd MMM yyyy"];
+	dateLabel.text = [dateFormatter stringFromDate:today];
 }
 
 
@@ -59,11 +68,13 @@
 	if (self.toggleSwitch.on) {
 		self.decreaseButton.hidden = NO;
 		self.increaseButton.hidden = NO;
+		self.dateLabel.hidden = NO;
 	}
 	
 	else {
 		self.decreaseButton.hidden = YES;
 		self.increaseButton.hidden = YES;
+		self.dateLabel.hidden = YES;
 	}
 }
 

@@ -18,6 +18,7 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *increaseButton;
 @property (strong, nonatomic) IBOutlet UIButton *decreaseButton;
+@property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property int count;
 
 @end

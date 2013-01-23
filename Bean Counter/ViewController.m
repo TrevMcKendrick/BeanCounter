@@ -23,7 +23,26 @@
 - (void)viewDidLoad
 {
 	count = [[NSUserDefaults standardUserDefaults] integerForKey:@"Counter"];
-	date  = [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"];
+	
+	
+	if ( [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"] == nil )
+	{
+		[self setDateToToday];
+	}
+	else
+	{
+		date  = [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"];
+		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+		[dateFormatter setDateFormat:@"dd MMM yyyy"];
+		dateLabel.text = [dateFormatter stringFromDate:date];
+	}
+		
+	
+	
+	
+	
+	
+	
 	[self displayCounterLabelText];
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.

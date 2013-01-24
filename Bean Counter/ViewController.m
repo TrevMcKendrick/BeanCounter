@@ -11,8 +11,6 @@
 
 @interface ViewController ()
 
-@property (nonatomic, strong) IBOutlet UISwitch *toggleSwitch;
-
 @end
 
 @implementation ViewController
@@ -46,12 +44,6 @@
 	[editButton setSelected:NO];
 	[editButton setTitle:@"Edit" forState:UIControlStateNormal];
 	[editButton setTitle:@"Done" forState:UIControlStateSelected];
-	
-	
-	
-	
-	
-	
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
 	
@@ -100,12 +92,26 @@
 	[self saveData];
 }
 
-- (IBAction)zeroOut:(UIButton *)sender {
+
+- (void)zero {
 	[self setDateToToday];
 	count = 0;
 	[self displayCounterLabelText];
+
+}
+
+- (IBAction)zeroMessage:(UIButton *)sender {
+	UIAlertView *message = [[UIAlertView alloc] initWithTitle:@"Reset to Zero?" message:@"This counter will be rest to zero and the date will be reset to today." delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"Zero", nil];
+	[message show];
+}
+
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
 	
-	
+	NSString *title = [alertView buttonTitleAtIndex:buttonIndex];
+	if ([title isEqualToString:@"Zero"]) {
+		[self zero];
+	}
+
 }
 
 - (IBAction)editView:(UIButton *)sender {
@@ -127,21 +133,7 @@
 		
 	}
 }
-//
-//- (IBAction)toggleSwitch:(id)sender {
-//	if (self.toggleSwitch.on) {
-//		self.decreaseButton.hidden = NO;
-//		self.increaseButton.hidden = NO;
-//		self.dateLabel.hidden = NO;
-//		self.zeroButton.hidden = NO;
-//	}
-//	
-//	else {
-//		self.decreaseButton.hidden = YES;
-//		self.increaseButton.hidden = YES;
-//		self.dateLabel.hidden = YES;
-//		self.zeroButton.hidden = YES;
-//	}
-//}
+
+
 
 @end

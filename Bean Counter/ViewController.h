@@ -8,11 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController {
+@interface ViewController : UIViewController <UIAlertViewDelegate> {
 	IBOutlet UILabel *countDisplay;
 	int count;
 	NSDate *date;
 	IBOutlet UIButton *editButton;
+	UIActionSheet *sheet;
 }
 
 
@@ -21,6 +22,7 @@
 - (IBAction)decreaseCount;
 - (IBAction)zeroOut:(UIButton *)sender;
 - (IBAction)editView:(UIButton *)sender;
+- (IBAction)zeroMessage:(UIButton *)sender;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *increaseButton;

@@ -31,7 +31,7 @@
 		date  = [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"];
 		NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 		[dateFormatter setDateFormat:@"dd MMM yyyy"];
-		dateLabel.text = [dateFormatter stringFromDate:date];
+		dateLabel.text = [@"Since " stringByAppendingString:[dateFormatter stringFromDate:date]];
 	}
 	
 	
@@ -39,7 +39,6 @@
 	
 	self.decreaseButton.hidden = YES;
 	self.increaseButton.hidden = YES;
-	self.dateLabel.hidden = YES;
 	self.zeroButton.hidden = YES;
 	[editButton setSelected:NO];
 	[editButton setTitle:@"Edit" forState:UIControlStateNormal];
@@ -62,7 +61,7 @@
 	NSDate *todaysDate = [NSDate date];
 	NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
 	[dateFormatter setDateFormat:@"dd MMM yyyy"];
-	dateLabel.text = [dateFormatter stringFromDate:todaysDate];
+	dateLabel.text = [@"Since " stringByAppendingString:[dateFormatter stringFromDate:todaysDate]];
 }
 
 - (void)saveData {
@@ -119,14 +118,12 @@
 	if ([sender isSelected])	{
 		self.decreaseButton.hidden = YES;
 		self.increaseButton.hidden = YES;
-		self.dateLabel.hidden = YES;
 		self.zeroButton.hidden = YES;
 		[sender setSelected:NO];
 
 	} else {
 		self.decreaseButton.hidden = NO;
 		self.increaseButton.hidden = NO;
-		self.dateLabel.hidden = NO;
 		self.zeroButton.hidden = NO;
 		[sender setSelected:YES];
 		

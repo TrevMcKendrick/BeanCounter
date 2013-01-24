@@ -12,6 +12,7 @@
 	IBOutlet UILabel *countDisplay;
 	int count;
 	NSDate *date;
+	IBOutlet UIButton *editButton;
 }
 
 
@@ -19,12 +20,14 @@
 - (IBAction)increaseCount;
 - (IBAction)decreaseCount;
 - (IBAction)zeroOut:(UIButton *)sender;
+- (IBAction)editView:(UIButton *)sender;
 
 
 @property (strong, nonatomic) IBOutlet UIButton *increaseButton;
 @property (strong, nonatomic) IBOutlet UIButton *decreaseButton;
 @property (strong, nonatomic) IBOutlet UILabel *dateLabel;
 @property (strong, nonatomic) IBOutlet UIButton *zeroButton;
+
 
 
 

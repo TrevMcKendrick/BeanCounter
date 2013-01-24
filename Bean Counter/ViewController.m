@@ -24,7 +24,6 @@
 {
 	count = [[NSUserDefaults standardUserDefaults] integerForKey:@"Counter"];
 	
-	
 	if ( [[NSUserDefaults standardUserDefaults] objectForKey:@"Date"] == nil )
 	{
 		[self setDateToToday];
@@ -36,16 +35,28 @@
 		[dateFormatter setDateFormat:@"dd MMM yyyy"];
 		dateLabel.text = [dateFormatter stringFromDate:date];
 	}
-		
-	
-	
-	
-	
 	
 	
 	[self displayCounterLabelText];
+	
+	self.decreaseButton.hidden = YES;
+	self.increaseButton.hidden = YES;
+	self.dateLabel.hidden = YES;
+	self.zeroButton.hidden = YES;
+	[editButton setSelected:NO];
+	[editButton setTitle:@"Edit" forState:UIControlStateNormal];
+	[editButton setTitle:@"Done" forState:UIControlStateSelected];
+	
+	
+	
+	
+	
+	
 	[super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+	
+		
+	
 }
 
 - (void)didReceiveMemoryWarning
@@ -97,20 +108,40 @@
 	
 }
 
-- (IBAction)toggleSwitch:(id)sender {
-	if (self.toggleSwitch.on) {
-		self.decreaseButton.hidden = NO;
-		self.increaseButton.hidden = NO;
-		self.dateLabel.hidden = NO;
-		self.zeroButton.hidden = NO;
-	}
+- (IBAction)editView:(UIButton *)sender {
 	
-	else {
+	if ([sender isSelected])	{
 		self.decreaseButton.hidden = YES;
 		self.increaseButton.hidden = YES;
 		self.dateLabel.hidden = YES;
 		self.zeroButton.hidden = YES;
+		[sender setSelected:NO];
+
+	} else {
+		self.decreaseButton.hidden = NO;
+		self.increaseButton.hidden = NO;
+		self.dateLabel.hidden = NO;
+		self.zeroButton.hidden = NO;
+		[sender setSelected:YES];
+		
+		
 	}
 }
+//
+//- (IBAction)toggleSwitch:(id)sender {
+//	if (self.toggleSwitch.on) {
+//		self.decreaseButton.hidden = NO;
+//		self.increaseButton.hidden = NO;
+//		self.dateLabel.hidden = NO;
+//		self.zeroButton.hidden = NO;
+//	}
+//	
+//	else {
+//		self.decreaseButton.hidden = YES;
+//		self.increaseButton.hidden = YES;
+//		self.dateLabel.hidden = YES;
+//		self.zeroButton.hidden = YES;
+//	}
+//}
 
 @end
